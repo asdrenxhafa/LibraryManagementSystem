@@ -1,0 +1,29 @@
+#SidePanelButtons:hover{
+/*    -fx-background-color:#00134f;*/
+-fx-background-color: #1d2e66;
+    
+    
+}
+#SidePanelButtons{
+    -fx-background-color:#0e1c4a;
+    -fx-text-fill:white;
+    
+}
+
+#SidePanel{
+/*    -fx-background-color:#000926;*/
+       -fx-background-color: #0e1c4a;
+ 
+}
+
+#LogOutButton{
+/*    -fx-background-color:#b6cdfc;*/
+        -fx-background-color:#273973;
+        
+}
+
+#LogOutButton:hover{
+    -fx-background-color:#2f427d;
+
+}
+
