@@ -49,6 +49,11 @@
                </graphic>
             </Button>
             <Pagination fx:id="pagination" layoutX="67.0" layoutY="224.0" prefHeight="714.0" prefWidth="976.0" />
+            <Button layoutX="764.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#GjeneroRaportButton" text="Gjenero Raport">
+               <graphic>
+                  <FontAwesomeIconView glyphName="FILE_PDF_ALT" size="20" />
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </center>
@@ -62,7 +67,7 @@
                   <Button layoutX="44.0" layoutY="364.0" mnemonicParsing="false" onMouseClicked="#RuajButton" prefHeight="43.0" prefWidth="133.0" text="Huazo" />
                   <Button layoutX="348.0" layoutY="364.0" mnemonicParsing="false" onMouseClicked="#AnuloButton" prefHeight="43.0" prefWidth="133.0" text="Anulo" />
                   <ComboBox fx:id="Klienti_comboBox" layoutX="74.0" layoutY="60.0" prefWidth="150.0" />
-                  <ComboBox fx:id="Libri_comboBox" layoutX="333.0" layoutY="60.0" prefWidth="150.0" />
+                  <ComboBox fx:id="Libri_comboBox" layoutX="333.0" layoutY="60.0" onMouseClicked="#LoadLibratButton" prefWidth="150.0" />
                   <Button layoutX="199.0" layoutY="364.0" mnemonicParsing="false" onMouseClicked="#KtheButton" prefHeight="43.0" prefWidth="133.0" text="Kthe" />
                </children>
             </AnchorPane>

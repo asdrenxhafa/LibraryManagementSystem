@@ -13,7 +13,10 @@ import DAL.HuazimetRepository;
 import DAL.KlientetRepository;
 import DAL.LibraryException;
 import DAL.LibratRepository;
+import java.io.File;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -34,6 +37,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * FXML Controller class
@@ -92,7 +104,6 @@ public class HuazimetPaneController implements Initializable {
         loadTable();
         searchField();
         loadKlientetComboBox();
-        loadLibratComboBox();
         pagination.setPageFactory(this::createPage);
     }
     
@@ -117,12 +128,18 @@ public class HuazimetPaneController implements Initializable {
     
     public void loadLibratComboBox(){
         try{
-            List<Librat> libra = lr.findAll();
+            List<Librat> libra = lr.findELire();
             comboBoxList1=  FXCollections.observableArrayList(libra);
         Libri_comboBox.setItems(comboBoxList1);
         }catch(Exception e){
             
         }
+    }
+    
+    
+    @FXML
+    public void LoadLibratButton(){
+        loadLibratComboBox();
     }
     
     
@@ -135,6 +152,10 @@ public class HuazimetPaneController implements Initializable {
         Huazimet k = table.getSelectionModel().getSelectedItem();
         Klienti_comboBox.getSelectionModel().select(k.getKlientetID());
         Libri_comboBox.getSelectionModel().select(k.getLibratID());
+        k.getLibratID().setELire(true);
+        Libri_comboBox.getSelectionModel().getSelectedItem().setELire(false);
+                    lr.edit(k.getLibratID());
+                    lr.edit(Libri_comboBox.getSelectionModel().getSelectedItem());
         
         }catch(Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -231,6 +252,8 @@ public class HuazimetPaneController implements Initializable {
         if (result.get() == ButtonType.OK){
         Huazimet k = table.getSelectionModel().getSelectedItem();
         hr.delete(k);
+        k.getLibratID().setELire(true);
+                    lr.edit(k.getLibratID());
         clear();
         }else{
             //kurgjo
@@ -244,6 +267,34 @@ public class HuazimetPaneController implements Initializable {
             alert.show();
         }
     }
+    
+    @FXML
+    private void GjeneroRaportButton(MouseEvent event) {
+        try{
+       Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=LibraryMS","DesktopUser","asdreni123");
+       String reportPath = new File("").getAbsolutePath()+"/src/Reports/HuazimiReport.jrxml";
+       JasperDesign jdesign = JRXmlLoader.load(reportPath);
+       String query = "SELECT TOP(19) * FROM huazimet ORDER BY Huazimet_ID DESC";
+       
+       JRDesignQuery updateQuery = new JRDesignQuery();
+       updateQuery.setText(query);
+       
+       jdesign.setQuery(updateQuery);
+       
+       JasperReport jr = JasperCompileManager.compileReport(jdesign);
+       
+       JasperPrint jp =  JasperFillManager.fillReport(jr, null,con);
+       
+       
+       
+       JasperViewer.viewReport(jp,false);
+       con.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        
+    }
+    
     
     @FXML
     public void AnuloButton(){

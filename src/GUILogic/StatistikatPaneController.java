@@ -17,21 +17,18 @@ import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
@@ -51,11 +48,13 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class StatistikatPaneController implements Initializable {
     @FXML
-    private Button btn_generate_raport;
+    private BarChart<?,?> Klientet_Chart;
     @FXML
-    private BarChart<String,BigDecimal> Klientet_Chart;
+    private BarChart<?,?> Librat_Chart;
     @FXML
-    private BarChart<String,BigDecimal> Librat_Chart;
+    private CategoryAxis xAxis;
+    @FXML
+    private NumberAxis yAxis;
     @FXML
     private Text KlientTeRi_field;
     @FXML

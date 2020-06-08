@@ -21,7 +21,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </BarChart>
-            <BarChart fx:id="Librat_Chart" layoutX="558.0" layoutY="483.0" prefHeight="330.0" prefWidth="430.0" title="Top 5 Librat e Huazuara">
+            <BarChart fx:id="Librat_Chart" categoryGap="20.0" layoutX="558.0" layoutY="483.0" prefHeight="330.0" prefWidth="615.0" title="Top 5 Librat e Huazuara">
                <xAxis>
                   <CategoryAxis side="BOTTOM" />
                </xAxis>

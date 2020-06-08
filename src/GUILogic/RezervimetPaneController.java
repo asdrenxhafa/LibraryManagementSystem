@@ -150,10 +150,14 @@ public class RezervimetPaneController implements Initializable {
         k.setKlientetID((Klientet)Klienti_comboBox.getSelectionModel().getSelectedItem());
         k.setLibratID((Librat)Libri_comboBox.getSelectionModel().getSelectedItem());
         k.setAktiv(true);
+                if(k.getLibratID().getELire()==false){
                 if(k.getKlientetID().getAktiv()==true){
                     rr.create(k);
                 }else{
                     throw new LibraryException("Klienti nuk eshte aktiv");
+                }
+                }else{
+                    throw new LibraryException("Libra tanime eshte e lire");
                 }
             }else{
                 Rezervimet k = table.getSelectionModel().getSelectedItem();

@@ -77,6 +77,27 @@ public class LibratRepository extends EntMngClass implements LibratInterface{
     }
     
     
+    
+    public List<Librat> findELire() throws LibraryException {
+        try{
+            List<Librat>librat = em.createNamedQuery("Librat.findAll").getResultList();
+            List<Librat> res = new ArrayList<Librat>();
+            
+            for(Librat l : librat){
+                if(l.getELire()){
+                    res.add(l);
+                }
+            }
+            
+            return res;
+            
+        }catch(Exception e){
+            throw new LibraryException("Msg \n"+e.getMessage());
+        }
+    }
+    
+    
+    
     public boolean findExists(Librat aut)throws LibraryException{
         try{
             List<Librat> libra = em.createNamedQuery("Librat.findAll").getResultList();
