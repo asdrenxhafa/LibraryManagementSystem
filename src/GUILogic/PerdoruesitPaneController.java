@@ -202,13 +202,13 @@ public class PerdoruesitPaneController implements Initializable {
                 p.setEmail(Email_field.getText());
                 String hashedName = file.getName().substring(0,file.getName().lastIndexOf(".")).concat(p.getEmail()).hashCode()+"";
                 String hashedFile = hashedName + file.getName().substring(file.getName().lastIndexOf("."), file.getName().length());
-                copyFile(ProfilePic_field.getText(),"C:\\Users\\Asdren\\Documents\\NetBeansProjects\\LibraryManagementSystem\\src\\Pictures\\"+hashedFile);
+                copyFile(ProfilePic_field.getText(),new File("").getAbsolutePath()+"/src/Pictures/"+hashedFile);
                 p.setEmri(Emri_field.getText());
                 p.setMbiemri(Mbiemri_field.getText());
                 p.setPassword(Password_field.getText());
                 p.setRoliID((Roli)RoliID_box.getSelectionModel().getSelectedItem());
                 p.setOnline(false);
-                p.setFoto("/Pictures/"+hashedFile);
+                p.setFoto(new File("").getAbsolutePath()+"\\src\\Pictures\\"+hashedFile);
                 if(!pr.findExists(p)){
                     pr.create(p);
                 }else{
@@ -223,9 +223,8 @@ public class PerdoruesitPaneController implements Initializable {
                 copyFile(ProfilePic_field.getText(),"C:\\.Users\\Asdren\\Documents\\NetBeansProjects\\LibraryManagementSystem\\src\\Pictures\\"+hashedFile);
                 p.setEmri(Emri_field.getText());
                 p.setMbiemri(Mbiemri_field.getText());
-                
                 p.setPassword(Password_field.getText());
-                p.setFoto("/Pictures/"+hashedFile);
+                p.setFoto(new File("").getAbsolutePath()+"\\src\\Pictures\\"+hashedFile);
                 pr.edit(p);
             }
         clear();

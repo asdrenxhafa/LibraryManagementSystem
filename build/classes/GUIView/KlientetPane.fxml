@@ -53,6 +53,11 @@
                <font>
                   <Font size="14.0" />
                </font></Text>
+            <Button layoutX="766.0" layoutY="160.0" mnemonicParsing="false" onMouseClicked="#GjeneroRaportButton" text="Gjenero Raport">
+               <graphic>
+                  <FontAwesomeIconView glyphName="FILE_PDF_ALT" size="20" />
+               </graphic>
+            </Button>
          </children>
       </AnchorPane>
    </center>

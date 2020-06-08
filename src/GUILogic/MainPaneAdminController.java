@@ -7,6 +7,7 @@ package GUILogic;
 
 import BLL.Perdoruesit;
 import DAL.PerdoruesitRepository;
+import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -53,10 +54,10 @@ public class MainPaneAdminController implements Initializable {
     public void loadImage(){
        try{
         Perdoruesit p = pr.findByOnline();
+            File foto = new File(p.getFoto());
             UserName_field.setText(p.getEmri()+ " "+p.getMbiemri());
-            Image im = new Image(p.getFoto(),false);
+            Image im = new Image("file:"+foto.getAbsolutePath(),false);
             ProfilePic.setFill(new ImagePattern(im));
-            System.out.println(p.getFoto());
        }catch(Exception e){
                 e.printStackTrace();
                 }

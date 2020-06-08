@@ -7,6 +7,7 @@ package GUILogic;
 
 import BLL.Perdoruesit;
 import DAL.PerdoruesitRepository;
+import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -51,9 +52,9 @@ public class MainPaneController implements Initializable {
     public void loadImage(){
        try{
         Perdoruesit p = pr.findByOnline();
-        System.out.println(p.getFoto()+"king");
+            File foto = new File(p.getFoto());
             UserName_field.setText(p.getEmri()+ " "+p.getMbiemri());
-            Image im = new Image(p.getFoto(),false);
+            Image im = new Image("file:"+foto.getAbsolutePath(),false);
             ProfilePic.setFill(new ImagePattern(im));
        }catch(Exception e){
                 e.printStackTrace();
@@ -95,16 +96,6 @@ public class MainPaneController implements Initializable {
         Parent root = null; 
         try {
             root=FXMLLoader.load(getClass().getResource("/GUIView/RezervimetPane.fxml"));
-        } catch (Exception e) {
-        }
-        bPane.setCenter(root);
-    }
-    
-    @FXML
-    public void StatistikatButton(){
-        Parent root = null; 
-        try {
-            root=FXMLLoader.load(getClass().getResource("/GUIView/StatistikatPane.fxml"));
         } catch (Exception e) {
         }
         bPane.setCenter(root);

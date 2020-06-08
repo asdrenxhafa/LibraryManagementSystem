@@ -121,7 +121,6 @@ public class RezervimetPaneController implements Initializable {
         }
     }
     
-    
     @FXML
     public void EditButton(){
         try{

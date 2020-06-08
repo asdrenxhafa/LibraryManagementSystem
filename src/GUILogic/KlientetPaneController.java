@@ -11,7 +11,10 @@ import BLL.Pagesat;
 import DAL.KlientetRepository;
 import DAL.LibraryException;
 import DAL.PagesatRepository;
+import java.io.File;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -33,6 +36,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * FXML Controller class
@@ -194,6 +206,35 @@ public class KlientetPaneController implements Initializable {
             alert.show();
         }
     }
+    
+    @FXML
+    private void GjeneroRaportButton(MouseEvent event) {
+        try{
+       Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=LibraryMS","DesktopUser","asdreni123");
+       String reportPath = new File("").getAbsolutePath()+"/src/Reports/Reporti.jrxml";
+       JasperDesign jdesign = JRXmlLoader.load(reportPath);
+       String query = "select * from Klientet";
+       
+       JRDesignQuery updateQuery = new JRDesignQuery();
+       updateQuery.setText(query);
+       
+       jdesign.setQuery(updateQuery);
+       
+       JasperReport jr = JasperCompileManager.compileReport(jdesign);
+       
+       JasperPrint jp =  JasperFillManager.fillReport(jr, null,con);
+       
+       
+       
+       JasperViewer.viewReport(jp,false);
+       con.close();
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
+        
+    }
+    
+    
     
     @FXML
     public void AnuloButton(){
