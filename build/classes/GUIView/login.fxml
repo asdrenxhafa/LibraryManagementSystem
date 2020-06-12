@@ -37,12 +37,12 @@
             </PasswordField>
             <Line endX="135.0" layoutX="212.0" layoutY="144.0" startX="-159.0" stroke="#0067b8" strokeWidth="1.4" />
             <Line endX="135.0" layoutX="212.0" layoutY="206.0" startX="-159.0" stroke="#0067b8" strokeWidth="1.4" />
-            <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="53.0" layoutY="24.0" onMouseClicked="#clearFocus" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="53.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Pictures/rsz_1login_logo.png" />
                </image>
             </ImageView>
-            <Text layoutX="107.0" layoutY="52.0" onMouseClicked="#clearFocus" strokeType="OUTSIDE" strokeWidth="0.0" text="Library Management System">
+            <Text layoutX="107.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Library Management System">
                <font>
                   <Font name="Segoe UI Symbol" size="16.0" />
                </font>

@@ -178,13 +178,11 @@ public class LoginController implements Initializable {
     
     
     public void clear(){
-        Email_field.setText(null);
         Password_field.setText(null);
     }
     
     @FXML
     public void clearFocus(){
-        Email_field.clear();
         Password_field.clear();
     }
 }

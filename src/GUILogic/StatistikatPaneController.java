@@ -159,8 +159,12 @@ catch(Exception ex){
             
             XYChart.Series top5Set = new XYChart.Series<>();
             
+            if(set.getData().size()<5){
+                top5Set=set;
+            }else{
             for(int i=0;i<5;i++){
                 top5Set.getData().add(set.getData().get(i));
+            }
             }
             
             
@@ -218,8 +222,12 @@ catch(Exception ex){
             
             XYChart.Series top5Set = new XYChart.Series<>();
             
+            if(set.getData().size()<5){
+                top5Set=set;
+            }else{
             for(int i=0;i<5;i++){
                 top5Set.getData().add(set.getData().get(i));
+            }
             }
             
             

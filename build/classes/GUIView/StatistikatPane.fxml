@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -80,6 +81,12 @@
                   <Font size="24.0" />
                </font>
             </Text>
+            <Text layoutX="85.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistika" wrappingWidth="112.248046875">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <FontAwesomeIconView glyphName="ANGLE_RIGHT" layoutX="63.0" layoutY="74.0" size="22" />
          </children></AnchorPane>
    </center>
 </BorderPane>
