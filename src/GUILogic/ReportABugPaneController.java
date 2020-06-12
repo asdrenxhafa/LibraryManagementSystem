@@ -63,7 +63,6 @@ public class ReportABugPaneController implements Initializable {
             
             for(Perdoruesit p : perdoruesi){
                 JavaMailUtilBug.sendEmail(p.getEmail(),Titulli_field.getText()+"\n","Niveli i problemit: "+getNiveliProblemit()+"\n"+"\n"+Permbajtja_field.getText());
-                System.out.println("Email u dergua me sukses");
                 
             }
         }catch(Exception e){

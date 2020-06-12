@@ -142,8 +142,6 @@ public class MainPaneController implements Initializable {
                 
                 
                 stage.setScene(scene);
-                stage.setX(620);
-                stage.setY(260);
                 stage.show();
         }catch(Exception e){
             

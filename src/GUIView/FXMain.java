@@ -26,6 +26,8 @@ public class FXMain extends Application {
         
         Stage stage = new Stage();
         
+        stage.setMaximized(true);
+        
         stage.setScene(scene);
         stage.show();
         

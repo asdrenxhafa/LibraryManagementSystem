@@ -27,3 +27,28 @@
 
 }
 
+#LoginInput {
+    -fx-background-color: white;
+}
+
+
+#LoginPane{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 20, 0, 0, 0);
+}
+
+
+#LoginButton{
+
+     -fx-background-color: #0067b8;
+     -fx-background-radius:0px;
+
+
+
+}
+
+
+
+#LoginButton:hover{
+    -fx-background-color:#00528f;
+
+}

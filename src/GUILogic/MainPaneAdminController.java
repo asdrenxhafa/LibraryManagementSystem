@@ -164,8 +164,6 @@ public class MainPaneAdminController implements Initializable {
 //                stage.setMaximized(true);
                 
                 stage.setScene(scene);
-                stage.setX(620);
-                stage.setY(260);
                 stage.show();
         }catch(Exception e){
             

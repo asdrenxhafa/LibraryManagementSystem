@@ -8,7 +8,6 @@ package GUILogic;
 import BLL.Huazimet;
 import BLL.Klientet;
 import BLL.Librat;
-import BLL.Pagesat;
 import DAL.HuazimetRepository;
 import DAL.KlientetRepository;
 import DAL.LibraryException;
@@ -274,7 +273,7 @@ public class HuazimetPaneController implements Initializable {
        Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;databaseName=LibraryMS","DesktopUser","asdreni123");
        String reportPath = new File("").getAbsolutePath()+"/src/Reports/HuazimiReport.jrxml";
        JasperDesign jdesign = JRXmlLoader.load(reportPath);
-       String query = "SELECT TOP(19) * FROM huazimet ORDER BY Huazimet_ID DESC";
+       String query = "SELECT TOP(20) * FROM huazimet ORDER BY Huazimet_ID DESC";
        
        JRDesignQuery updateQuery = new JRDesignQuery();
        updateQuery.setText(query);

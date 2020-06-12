@@ -5,34 +5,49 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUILogic.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUILogic.LoginController">
    <children>
-      <TextField fx:id="Email_field" layoutX="398.0" layoutY="160.0" onKeyPressed="#Enter" />
-      <Text layoutX="357.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-mail:" />
-      <Text layoutX="340.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password:">
-         <font>
-            <Font name="Segoe UI" size="12.0" />
-         </font>
-      </Text>
-      <Text layoutX="413.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mirë se vini!" textAlignment="CENTER">
-         <font>
-            <Font name="Segoe UI Semilight" size="23.0" />
-         </font>
-      </Text>
-      <PasswordField fx:id="Password_field" layoutX="398.0" layoutY="217.0" onKeyPressed="#Enter" />
-      <Button layoutX="433.0" layoutY="277.0" mnemonicParsing="false" onMouseClicked="#LoginButton" prefHeight="31.0" prefWidth="79.0" text="Login">
-         <font>
-            <Font name="Segoe UI" size="14.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="400.0" fitWidth="327.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="1096.0" fitWidth="1935.0" layoutX="-10.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Pictures/pic.jpg" />
+            <Image url="@../Pictures/login_background.jpg" />
          </image>
       </ImageView>
+      <AnchorPane id="LoginPane" layoutX="730.0" layoutY="325.0" prefHeight="350.0" prefWidth="400.0" style="-fx-background-color: white;" stylesheets="@asd.css">
+         <children>
+            <Button id="LoginButton" layoutX="269.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#LoginButton" prefHeight="31.0" prefWidth="79.0" stylesheets="@asd.css" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+            </Button>
+            <TextField id="LoginInput" fx:id="Email_field" layoutX="53.0" layoutY="106.0" onKeyPressed="#Enter" prefHeight="31.0" prefWidth="294.0" promptText="Email" stylesheets="@asd.css">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <PasswordField id="LoginInput" fx:id="Password_field" layoutX="53.0" layoutY="168.0" onKeyPressed="#Enter" prefHeight="31.0" prefWidth="294.0" promptText="Password" stylesheets="@asd.css">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </PasswordField>
+            <Line endX="135.0" layoutX="212.0" layoutY="144.0" startX="-159.0" stroke="#0067b8" strokeWidth="1.4" />
+            <Line endX="135.0" layoutX="212.0" layoutY="206.0" startX="-159.0" stroke="#0067b8" strokeWidth="1.4" />
+            <ImageView fitHeight="47.0" fitWidth="50.0" layoutX="53.0" layoutY="24.0" onMouseClicked="#clearFocus" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Pictures/rsz_1login_logo.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="107.0" layoutY="52.0" onMouseClicked="#clearFocus" strokeType="OUTSIDE" strokeWidth="0.0" text="Library Management System">
+               <font>
+                  <Font name="Segoe UI Symbol" size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
    </children>
 </Pane>

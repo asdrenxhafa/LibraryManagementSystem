@@ -33,10 +33,10 @@ CREATE TABLE [Perdoruesit] (
 
 CREATE INDEX [Roli_ID] ON Perdoruesit ([Roli_ID]); 
 
-INSERT INTO Perdoruesit ( [Emri], [Mbiemri], [Email], [Password],[Roli_ID],[Foto],[Online]) VALUES
-('Elon',	'Musk',	'ax@gmail.com',	'pw',1,'/Pictures/elonmusk.jpg',0);
-INSERT INTO Perdoruesit ( [Emri], [Mbiemri], [Email], [Password],[Roli_ID],[Foto],[Online]) VALUES
-('Asdren',	'Xhafa',	'asd@gmail.com',	'password',2,'/Pictures/os_book.jpg',0);
+INSERT INTO Perdoruesit ( [Emri], [Mbiemri], [Email], [Password],[Roli_ID],[Online]) VALUES
+('Elon',	'Musk',	'ax@gmail.com',	'pw',1,0);
+INSERT INTO Perdoruesit ( [Emri], [Mbiemri], [Email], [Password],[Roli_ID],[Online]) VALUES
+('Asdren',	'Xhafa',	'asd@gmail.com',	'password',2,0);
 
 
 
@@ -182,6 +182,7 @@ CREATE Table huazimet(
 
 CREATE INDEX [huazimet_ibfk_1] ON Klientet ([Klientet_ID]);
 CREATE INDEX [huazimet_ibfk_2] ON librat ([Librat_ID]); 
+ 
 
 
 CREATE TABLE pagesat(
