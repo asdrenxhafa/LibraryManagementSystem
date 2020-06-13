@@ -26,7 +26,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -39,6 +41,10 @@ public class LoginController implements Initializable {
     private TextField Email_field;
     @FXML
     private PasswordField Password_field;
+    @FXML 
+    private ImageView backgroundPane;
+    @FXML
+    private AnchorPane centerPane;
     
     PerdoruesitRepository pr = new PerdoruesitRepository();
     private LibratRepository lr = new LibratRepository();
@@ -183,6 +189,6 @@ public class LoginController implements Initializable {
     
     @FXML
     public void clearFocus(){
-        Password_field.clear();
+        centerPane.requestFocus();
     }
 }

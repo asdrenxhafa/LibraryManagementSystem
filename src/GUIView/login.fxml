@@ -13,12 +13,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUILogic.LoginController">
    <children>
-      <ImageView fitHeight="1096.0" fitWidth="1935.0" layoutX="-10.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="backgroundPane" fitHeight="1096.0" fitWidth="1935.0" layoutX="-10.0" layoutY="-7.0" onMouseClicked="#clearFocus" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Pictures/login_background.jpg" />
          </image>
       </ImageView>
-      <AnchorPane id="LoginPane" layoutX="730.0" layoutY="325.0" prefHeight="350.0" prefWidth="400.0" style="-fx-background-color: white;" stylesheets="@asd.css">
+      <AnchorPane id="LoginPane" fx:id="centerPane" layoutX="730.0" layoutY="325.0" onMouseClicked="#clearFocus" prefHeight="350.0" prefWidth="400.0" style="-fx-background-color: white;" stylesheets="@asd.css">
          <children>
             <Button id="LoginButton" layoutX="269.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#LoginButton" prefHeight="31.0" prefWidth="79.0" stylesheets="@asd.css" text="Login" textFill="WHITE">
                <font>
@@ -42,7 +42,7 @@
                   <Image url="@../Pictures/rsz_1login_logo.png" />
                </image>
             </ImageView>
-            <Text layoutX="107.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Library Management System">
+            <Text layoutX="107.0" layoutY="52.0" onMouseClicked="#clearFocus" strokeType="OUTSIDE" strokeWidth="0.0" text="Library Management System">
                <font>
                   <Font name="Segoe UI Symbol" size="16.0" />
                </font>

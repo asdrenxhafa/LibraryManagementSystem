@@ -86,7 +86,7 @@ public class PerdoruesitRepository extends EntMngClass implements PerdoruesitInt
             Perdoruesit per = (Perdoruesit) query.getSingleResult();
             return per;
             }catch (Exception e) {
-            throw new LibraryException("Perdoruesi nuk ekzistion ne sistem, ju lutem provoni perseri");
+            throw new LibraryException("Perdoruesi nuk egziston apo keni gabuar passwordin");
         }
     }
 
